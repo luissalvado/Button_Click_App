@@ -2,6 +2,7 @@ package com.salvado.buttonclickapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.View
@@ -36,5 +37,45 @@ class MainActivity : AppCompatActivity() {
                 userInput.setText("")
             }
         })
+    }
+
+    override fun onStart() {
+        Log.d(TAG, "onStart: called")
+        super.onStart()
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        Log.d(TAG, "onRestoreInstanceState: called")
+        super.onRestoreInstanceState(savedInstanceState)
+    }
+
+    override fun onResume() {
+        Log.d(TAG, "onResume: called")
+        super.onResume()
+    }
+
+    override fun onPause() {
+        Log.d(TAG, "onPause: called")
+        super.onPause()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        Log.d(TAG, "onSaveInstanceState: called")
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onStop() {
+        Log.d(TAG, "onStop: called")
+        super.onStop()
+    }
+
+    override fun onRestart() {
+        Log.d(TAG, "onRestart: called")
+        super.onRestart()
+    }
+
+    override fun onDestroy() {
+        Log.d(TAG, "onDestroy: called")
+        super.onDestroy()
     }
 }
