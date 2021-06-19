@@ -10,9 +10,11 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 
-private val TAG = "MainActivity"
+private const val TAG = "MainActivity"
+private const val TEXT_CONTENTS = "TextContent"
 
 class MainActivity : AppCompatActivity() {
+
     private var textView: TextView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +49,8 @@ class MainActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         Log.d(TAG, "onRestoreInstanceState: called")
         super.onRestoreInstanceState(savedInstanceState)
+        textView?.text = savedInstanceState.getString(TEXT_CONTENTS, "")
+
     }
 
     override fun onResume() {
@@ -62,6 +66,7 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         Log.d(TAG, "onSaveInstanceState: called")
         super.onSaveInstanceState(outState)
+        outState.putString(TEXT_CONTENTS, textView?.text.toString())
     }
 
     override fun onStop() {
